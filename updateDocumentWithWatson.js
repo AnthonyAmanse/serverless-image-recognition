@@ -2,10 +2,12 @@ var Cloudant = require('@cloudant/cloudant');
 var fs = require('fs');
 var cloudant;
 var dbName;
+var dbNameProcessed;
 
 function main(params) {
     cloudant = Cloudant({account:params.USERNAME, password:params.PASSWORD});
     dbName = params.DBNAME;
+    dbNameProcessed = params.DBNAME_PROCESSED;
     return new Promise(function(resolve, reject) {
         let mydb = cloudant.db.use(dbName);
         mydb.attachment.get(params.id, 'image', function(err, data) {
@@ -13,14 +15,8 @@ function main(params) {
                 reject(err);
             } else {
                 console.log(params)
+                console.log(data)
                 resolve(processImageToWatson(data,params.id,params.WATSON_VR_APIKEY));
-                // if (typeof data._attachments == "undefined") {
-                //     console.log("Attachment isn't existing");
-                //     reject({"reason":"Attachment isn't existing"});
-                // } else {
-                //     data.WATSON_VR_APIKEY = params.WATSON_VR_APIKEY
-                //     resolve(data);
-                // }
             }
         });
     });
@@ -52,19 +48,16 @@ function processImageToWatson(data,id,apikey) {
 
 function updateDocument(watsonResult,id) {
     return new Promise(function(resolve, reject) {
-        let mydb = cloudant.db.use(dbName);
-        mydb.get(id, function (err,doc) {
+        let mydb = cloudant.db.use(dbNameProcessed);
+        var doc = {};
+        doc._id = id
+        doc.watsonResults = watsonResult.images[0].classifiers;
+        mydb.insert(doc, function(err,body) {
             if (err) {
                 reject(err);
             } else {
-                doc.watsonResults = watsonResult.images[0].classifiers;
-                mydb.insert(doc, function(err,body) {
-                    if (err) {
-                        reject(err);
-                    } else {
-                        resolve(body);
-                    }
-                });
+                console.log(body);
+                resolve(body);
             }
         });
     });
