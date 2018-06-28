@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		62E4E7AB56FE8CDDF49BCD5F /* Pods_ServerlessImageTagging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751F15186F0E9A0367024F95 /* Pods_ServerlessImageTagging.framework */; };
+		929078AA20E482D20038A671 /* ImageCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929078A920E482D20038A671 /* ImageCustomCell.swift */; };
+		929078AC20E4854F0038A671 /* MyImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929078AB20E4854F0038A671 /* MyImages.swift */; };
 		92DA0E8220E187530049B446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DA0E8120E187530049B446 /* AppDelegate.swift */; };
 		92DA0E8420E187530049B446 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DA0E8320E187530049B446 /* ImagesViewController.swift */; };
 		92DA0E8720E187530049B446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DA0E8520E187530049B446 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		751F15186F0E9A0367024F95 /* Pods_ServerlessImageTagging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ServerlessImageTagging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		929078A920E482D20038A671 /* ImageCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCustomCell.swift; sourceTree = "<group>"; };
+		929078AB20E4854F0038A671 /* MyImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImages.swift; sourceTree = "<group>"; };
 		92DA0E7E20E187530049B446 /* ServerlessImageTagging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServerlessImageTagging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DA0E8120E187530049B446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92DA0E8320E187530049B446 /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				92DA0E8320E187530049B446 /* ImagesViewController.swift */,
 				92DA0E9620E1D6040049B446 /* SwiftCloudantHelper.swift */,
 				92DA0E8520E187530049B446 /* Main.storyboard */,
+				929078AB20E4854F0038A671 /* MyImages.swift */,
+				929078A920E482D20038A671 /* ImageCustomCell.swift */,
 				92DA0E8B20E187540049B446 /* Assets.xcassets */,
 				92DA0E8D20E187540049B446 /* LaunchScreen.storyboard */,
 				92DA0E9020E187540049B446 /* Info.plist */,
@@ -224,8 +230,10 @@
 			files = (
 				92DA0E8420E187530049B446 /* ImagesViewController.swift in Sources */,
 				92DA0E8220E187530049B446 /* AppDelegate.swift in Sources */,
+				929078AA20E482D20038A671 /* ImageCustomCell.swift in Sources */,
 				92DA0E8A20E187530049B446 /* ServerlessImageTagging.xcdatamodeld in Sources */,
 				92DA0E9720E1D6040049B446 /* SwiftCloudantHelper.swift in Sources */,
+				929078AC20E4854F0038A671 /* MyImages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

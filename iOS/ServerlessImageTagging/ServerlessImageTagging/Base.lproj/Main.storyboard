@@ -19,19 +19,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yn7-8M-QPI">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="200" height="250"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="imageCell" id="zmi-6e-hWh">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="imageCell" id="zmi-6e-hWh" customClass="ImageCustomCell" customModule="ServerlessImageTagging" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="0.0" width="200" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cSI-rA-bcF">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="sJt-Uy-gqU"/>
+                                                <constraint firstAttribute="width" constant="200" id="yzl-0V-8Ln"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTZ-10-Uxh">
+                                            <rect key="frame" x="0.0" y="200" width="200" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="sTZ-10-Uxh" firstAttribute="top" secondItem="cSI-rA-bcF" secondAttribute="bottom" constant="10" id="aGY-C1-uQn"/>
+                                    <constraint firstItem="cSI-rA-bcF" firstAttribute="top" secondItem="zmi-6e-hWh" secondAttribute="top" id="cBT-6g-zyu"/>
+                                    <constraint firstItem="sTZ-10-Uxh" firstAttribute="leading" secondItem="zmi-6e-hWh" secondAttribute="leading" constant="10" id="t2q-Gr-HeT"/>
+                                    <constraint firstItem="cSI-rA-bcF" firstAttribute="leading" secondItem="zmi-6e-hWh" secondAttribute="leading" id="uMa-b8-ANC"/>
+                                    <constraint firstAttribute="trailing" secondItem="sTZ-10-Uxh" secondAttribute="trailing" constant="10" id="zrR-yb-KFU"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="cSI-rA-bcF" id="lDO-bN-MDz"/>
+                                    <outlet property="tagsLabel" destination="sTZ-10-Uxh" id="W4c-6v-Ukv"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -56,7 +82,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XR3-HT-eaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986" y="12"/>
+            <point key="canvasLocation" x="984.79999999999995" y="11.244377811094454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u9b-yT-5qT">

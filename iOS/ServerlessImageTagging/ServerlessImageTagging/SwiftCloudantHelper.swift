@@ -62,5 +62,30 @@ class SwiftCloudantHelper {
         }
         self.client.add(operation: create)
     }
+    
+    func getTags(_ id: String, tries: Int? = 0, completion: (([Any]) -> ())?) {
+        let get = GetDocumentOperation(id: id, databaseName: self.dbNameProcessed) {
+            response, httpInfo, error in
+            if let error = error {
+                print("Error getting document id: \(id) with error: \(error)")
+                if tries! < 500 {
+                    let when = DispatchTime.now() + 3
+                    DispatchQueue.main.asyncAfter(deadline: when) {
+                        self.getTags(id, tries: tries! + 1, completion: completion)
+                    }
+                }
+            } else if let response = response {
+                if let watsonResults = response["watsonResults"] {
+                    if watsonResults is Array<Any> {
+                        let classes = (watsonResults as! Array<Any>)[0] as! [String: Any]
+                        if classes["classes"] is Array<Any> {
+                            completion?(classes["classes"] as! Array<Any>)
+                        }
+                    }
+                }
+            }
+        }
+        self.client.add(operation: get)
+    }
 
 }
