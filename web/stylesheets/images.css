@@ -1,0 +1,34 @@
+.uploadedImages {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 5vw;
+}
+
+.uploadedImage {
+  height: auto;
+  max-width: 300px;
+}
+
+.imageSection {
+  padding: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  max-width: 300px;
+  background-color:aliceblue;
+  border-radius: 15px;
+}
+
+.imageLabels {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imageLabel {
+  padding: 3px;
+  margin: 3px;
+  background: lightblue;
+  font-size: 10pt;
+  border-radius: 6px;
+}
