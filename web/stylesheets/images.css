@@ -16,8 +16,9 @@
   margin-right: 25px;
   margin-bottom: 25px;
   max-width: 300px;
-  background-color:aliceblue;
+  background-color: #a98ca4;
   border-radius: 15px;
+  box-shadow: 0px 1px 10px 0px #a98ca4;
 }
 
 .imageLabels {
@@ -28,7 +29,8 @@
 .imageLabel {
   padding: 3px;
   margin: 3px;
-  background: lightblue;
-  font-size: 10pt;
+  background: #cda9a9;
+  color: #000;
+  font-size: 12pt;
   border-radius: 6px;
 }
