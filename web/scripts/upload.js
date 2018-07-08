@@ -1,12 +1,12 @@
 let uplaodButton = document.getElementById("uploadImage");
 let selectImage = document.getElementById("selectImage");
 let form = document.forms['upload'];
-let testCloudantURL = "https://d1dda683-a71d-43ca-9c92-bf111700dc00-bluemix.cloudant.com/";
+let stringCloudantURL = "https://d1dda683-a71d-43ca-9c92-bf111700dc00-bluemix:fa2971ea3c351e710593bd1fb85d6b714dd5d2c9cdc03a49568f58fd8874cb1f@d1dda683-a71d-43ca-9c92-bf111700dc00-bluemix.cloudant.com"
 let imageDatabase = "newimages"
 let tagsDatabase = "processed"
-let username = "d1dda683-a71d-43ca-9c92-bf111700dc00-bluemix";
-let password = "fa2971ea3c351e710593bd1fb85d6b714dd5d2c9cdc03a49568f58fd8874cb1f";
 let uploadedImages = document.getElementById("uploadedImages");
+
+const cloudantURL = new URL(stringCloudantURL);
 
 function uploadImage() {
   var image = selectImage.files[0];
@@ -50,13 +50,13 @@ function loadImageToBrowser(doc, imageToLoad) {
 
 function uploadToCloudant(doc, dom) {
   console.log(doc)
-  console.log(testCloudantURL)
+  console.log(cloudantURL.origin)
   $.ajax({
-      url: testCloudantURL + imageDatabase,
+      url: cloudantURL.origin + "/" + imageDatabase,
       type: "POST",
       data: JSON.stringify(doc),
       headers: {
-        "Authorization": "Basic " + btoa(username + ":" + password)
+        "Authorization": "Basic " + btoa(cloudantURL.username + ":" + cloudantURL.password)
       },
       dataType: 'json',
       contentType: 'application/json',
@@ -78,10 +78,10 @@ function uploadToCloudant(doc, dom) {
 
 function getDocumentWithId(id, dom, tries) {
   $.ajax({
-      url: testCloudantURL + tagsDatabase + "/" + id,
+      url: cloudantURL.origin + "/" + tagsDatabase + "/" + id,
       type: "GET",
       headers: {
-        "Authorization": "Basic " + btoa(username + ":" + password)
+        "Authorization": "Basic " + btoa(cloudantURL.username + ":" + cloudantURL.password)
       },
       success: function (data) {
         displayTags(data, dom)

@@ -1,9 +1,9 @@
 function getAllImageDocuments() {
   $.ajax({
-      url: testCloudantURL + imageDatabase + "/_all_docs",
+      url: cloudantURL.origin + "/" + imageDatabase + "/_all_docs",
       type: "GET",
       headers: {
-        "Authorization": "Basic " + btoa(username + ":" + password)
+        "Authorization": "Basic " + btoa(cloudantURL.username + ":" + cloudantURL.password)
       },
       success: function (data) {
         for (var id in data.rows) {
@@ -23,7 +23,7 @@ function getImage(id) {
 
   var imageSection = document.createElement('div');
   var imageHolder = document.createElement('div');
-  image.src = testCloudantURL + imageDatabase + "/" + id + "/image"
+  image.src = cloudantURL.href + imageDatabase + "/" + id + "/image"
   image.className = "uploadedImage";
   imageSection.id = id
   imageSection.className = "imageSection";
