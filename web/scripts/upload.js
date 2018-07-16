@@ -1,12 +1,15 @@
 let uplaodButton = document.getElementById("uploadImage");
 let selectImage = document.getElementById("selectImage");
 let form = document.forms['upload'];
-let stringCloudantURL = "https://d1dda683-a71d-43ca-9c92-bf111700dc00-bluemix:fa2971ea3c351e710593bd1fb85d6b714dd5d2c9cdc03a49568f58fd8874cb1f@d1dda683-a71d-43ca-9c92-bf111700dc00-bluemix.cloudant.com"
+let stringCloudantURL = "https://:@"
 let imageDatabase = "newimages"
 let tagsDatabase = "processed"
 let uploadedImages = document.getElementById("uploadedImages");
 
-const cloudantURL = new URL(stringCloudantURL);
+let usernameCloudant = "d1dda683-a71d-43ca-9c92-bf111700dc00-bluemix"
+let passwordCloudant = "fa2971ea3c351e710593bd1fb85d6b714dd5d2c9cdc03a49568f58fd8874cb1f"
+
+const cloudantURL = new URL("https://" + usernameCloudant + ":" + passwordCloudant + "@" + usernameCloudant + ".cloudant.com");
 
 function uploadImage() {
   var image = selectImage.files[0];
